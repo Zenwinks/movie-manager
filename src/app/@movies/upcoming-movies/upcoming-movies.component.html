@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="change-page" *ngIf="nbPages > 1">
+    <div class="previous-page" (click)="changePage(-1)" *ngIf="actualPage > 1">Page précédente</div>
+    <div class="page">{{actualPage}}/{{nbPages}}</div>
+    <div class="next-page" (click)="changePage(1)" *ngIf="actualPage < nbPages">Page suivante</div>
+  </div>
+  <div class="movies-list">
+    <div class="movie" *ngFor="let movie of upcomingMovies">
+      <img src="{{imgPath}}{{movie.poster_path}}" alt="">
+      <div>
+        <span>{{movie.title}} ({{movie.release_date.substr(0, 4)}})</span>
+        <div *ngIf="movie.vote_count > 0">
+          <span *ngIf="movie.vote_average >= 5">
+            <span style="color: green; font-weight: bold">{{movie.vote_average}}</span>/10
+          </span>
+        <span *ngIf="movie.vote_average < 5">
+            <span style="color: red; font-weight: bold">{{movie.vote_average}}</span>/10
+          </span>
+      </div>
+        <span *ngIf="movie.vote_count <= 0"><b>Non noté</b></span>
+      </div>
+    </div>
+  </div>
+  <div class="change-page" *ngIf="nbPages > 1">
+    <div class="previous-page" (click)="changePage(-1)" *ngIf="actualPage > 1">Page précédente</div>
+    <div class="page">{{actualPage}}/{{nbPages}}</div>
+    <div class="next-page" (click)="changePage(1)" *ngIf="actualPage < nbPages">Page suivante</div>
+  </div>
+</div>

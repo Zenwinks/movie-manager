@@ -1,0 +1,15 @@
+<div class="nav">
+  <h1 (click)="menu = 'top'" [ngClass]="{'active': menu === 'top'}">Les mieux notés</h1>
+  <div>|</div>
+  <h1 (click)="menu = 'popular'" [ngClass]="{'active': menu === 'popular'}">Les plus populaires</h1>
+  <div>|</div>
+  <h1 (click)="menu = 'on-air'" [ngClass]="{'active': menu === 'on-air'}">En cours</h1>
+  <div>|</div>
+  <h1 (click)="menu = 'airing-today'" [ngClass]="{'active': menu === 'airing-today'}">Diffusé aujourd'hui</h1>
+</div>
+<div class="container">
+  <app-top-rated-series *ngIf="menu === 'top'"></app-top-rated-series>
+  <app-popular-series *ngIf="menu === 'popular'"></app-popular-series>
+  <app-on-air-series *ngIf="menu === 'on-air'"></app-on-air-series>
+  <app-airing-today-series *ngIf="menu === 'airing-today'"></app-airing-today-series>
+</div>

@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="change-page" *ngIf="nbPages > 1">
+    <div class="previous-page" (click)="changePage(-1)" *ngIf="actualPage > 1">Page précédente</div>
+    <div class="page">{{actualPage}}/{{nbPages}}</div>
+    <div class="next-page" (click)="changePage(1)" *ngIf="actualPage < nbPages">Page suivante</div>
+  </div>
+  <div class="series-list">
+    <div class="serie" *ngFor="let serie of airingTodaySeries">
+      <img src="{{imgPath}}{{serie.poster_path}}" alt="">
+      <div>
+        <span>{{serie.name}} ({{serie.first_air_date.substr(0, 4)}})</span>
+        <div *ngIf="serie.vote_count > 0">
+          <span *ngIf="serie.vote_average >= 5">
+            <span style="color: green; font-weight: bold">{{serie.vote_average}}</span>/10
+          </span>
+          <span *ngIf="serie.vote_average < 5">
+            <span style="color: red; font-weight: bold">{{serie.vote_average}}</span>/10
+          </span>
+        </div>
+        <span *ngIf="serie.vote_count <= 0"><b>Non noté</b></span>
+      </div>
+    </div>
+  </div>
+  <div class="change-page" *ngIf="nbPages > 1">
+    <div class="previous-page" (click)="changePage(-1)" *ngIf="actualPage > 1">Page précédente</div>
+    <div class="page">{{actualPage}}/{{nbPages}}</div>
+    <div class="next-page" (click)="changePage(1)" *ngIf="actualPage < nbPages">Page suivante</div>
+  </div>
+</div>

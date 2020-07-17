@@ -1,0 +1,15 @@
+<div class="nav">
+  <h1 (click)="menu = 'top'" [ngClass]="{'active': menu === 'top'}">Les mieux notés</h1>
+  <div>|</div>
+  <h1 (click)="menu = 'popular'" [ngClass]="{'active': menu === 'popular'}">Les plus populaires</h1>
+  <div>|</div>
+  <h1 (click)="menu = 'cinema'" [ngClass]="{'active': menu === 'cinema'}">Au cinéma</h1>
+  <div>|</div>
+  <h1 (click)="menu = 'upcoming'" [ngClass]="{'active': menu === 'upcoming'}">A venir</h1>
+</div>
+<div class="container">
+  <app-top-rated-movie *ngIf="menu === 'top'"></app-top-rated-movie>
+  <app-popular-movie *ngIf="menu === 'popular'"></app-popular-movie>
+  <app-now-playing *ngIf="menu === 'cinema'"></app-now-playing>
+  <app-upcoming-movies *ngIf="menu === 'upcoming'"></app-upcoming-movies>
+</div>
